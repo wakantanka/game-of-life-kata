@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  */
 public enum Cell {
-	ALIVE("green"), DEAD, FOCUS, REBORN, DYING;
+	ALIVE("green"), DEAD("red"), FOCUS, REBORN, DYING;
 
 	String colour;	
 	Cell() {}
