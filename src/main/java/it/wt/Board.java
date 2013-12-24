@@ -38,7 +38,6 @@ public class Board {
 
 	public void nextGenerationTurn() {
 		for (int i = worldOfCells.length - 1; i >= 0; i--) {
-			System.out.print(" \n" + (i) + " ");
 			for (int j = 0; j < worldOfCells[i].length; j++) {
 				if (worldOfCells[i][j].equals(Cell.ALIVE)) {
 					if (countLivingSiblings(i, j) == 2
@@ -163,7 +162,6 @@ public class Board {
 
 	 /* private */ void transform(Cell from, Cell to) {
 			for (int i = worldOfCells.length - 1; i >= 0; i--) {
-				System.out.print(" \n" + (i) + " ");
 				for (int j = 0; j < worldOfCells[i].length; j++) {
 					 if(worldOfCells[i][j].equals(from))
 						 worldOfCells[i][j] = to ;
