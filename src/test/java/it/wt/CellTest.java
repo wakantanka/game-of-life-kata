@@ -29,7 +29,7 @@ public class CellTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+ @Test
 	public void testStartCellIsAlive() {
 		Board board67 = new Board(6,7);
 		
@@ -43,18 +43,25 @@ public class CellTest {
 	}
 	
 	@Test
-	public void testCountLivingSiblings() {
+	public void testCountNoLivingSiblings() {
 		Board board67 = new Board(6,7);
 		
 		board67.summonCell(1,2);
 		System.out.println(board67.getCell(1,2).toString());
 		assertEquals(Cell.ALIVE, board67.getCell(1,2));
 		assertEquals(0,board67.countLivingSiblings(1, 2));
+//		nextTurn
+//		assertEquals(Cell.DEAD, board67.getCell(1,2));
+	}
+	
+//	@Test
+	public void testCount3LivingSiblings() {
+		Board board67 = new Board(6,7);
 		
-		
-		board67.nextGenerationTurn();
-//		System.out.println(board66.getCell(1,1).name());
-//		assertEquals(Cell.DEAD, board66.getCell(1,1));
+		board67.summonCell(1,2);
+		System.out.println(board67.getCell(1,2).toString());
+		assertEquals(Cell.ALIVE, board67.getCell(1,2));
+		assertEquals(0,board67.countLivingSiblings(1, 2));
 		
 	}
 	
