@@ -57,7 +57,9 @@ public class Board {
 				}
 			}
 		}
-//		cleanup
+//		cleanup-transform
+		transform(Cell.REBORN, Cell.ALIVE);
+		transform(Cell.DYING, Cell.DEAD);
 		
 		
 	}

@@ -42,8 +42,7 @@ public class CellTest {
 		System.out.println(board67.getCell(1,2).toString());
 		assertEquals(Cell.ALIVE, board67.getCell(1,2));
 		board67.nextGenerationTurn();
-		assertEquals(Cell.DYING, board67.getCell(1,2));
-//		assertEquals(Cell.DEAD, board67.getCell(1,2));
+		assertEquals(Cell.DEAD, board67.getCell(1,2));
 		assertNotEquals(Cell.ALIVE, board67.getCell(1,2));
 		board67.showBoard();
 	}
