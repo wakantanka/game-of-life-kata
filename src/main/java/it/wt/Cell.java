@@ -8,5 +8,5 @@ package it.wt;
  *
  */
 public enum Cell {
-	ALIVE, DEAD, FOCUS, REBORN
+	ALIVE, DEAD, FOCUS, REBORN, DYING
 }

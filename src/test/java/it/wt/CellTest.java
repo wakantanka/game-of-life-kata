@@ -35,6 +35,8 @@ public class CellTest {
 		
 		board66.summonCell(1,1);
 		assertEquals(Cell.ALIVE, board66.getCell(1,1));
+		board66.nextGenerationTurn();
+//		assertEquals(Cell.DEAD, board66.getCell(1,1));
 	}
 
 }
