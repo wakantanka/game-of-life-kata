@@ -41,40 +41,119 @@ public class Board {
 			System.out.print(" \n" + (i) + " ");
 			for (int j = 0; j < worldOfCells[i].length; j++) {
 				if (worldOfCells[i][j].equals(Cell.ALIVE)) {
-					countLivingSiblings(i, j);
-					System.out.print(worldOfCells[i][j].sign);
-				} else if (worldOfCells[i][j].equals(Cell.DEAD)) {
-					System.out.print(worldOfCells[i][j].sign);
-				} else if (worldOfCells[i][j].equals(Cell.REBORN)) {
-					System.out.print(worldOfCells[i][j].sign);
-				} else if (worldOfCells[i][j].equals(Cell.DYING)) {
-					System.out.print(worldOfCells[i][j].sign);				}
+					if (countLivingSiblings(i, j) == 2
+							|| countLivingSiblings(i, j) == 3) {
+						continue;
+					} else {
+						worldOfCells[i][j] = Cell.DYING;
+						continue;
+					}
+				} 
+				
+				if (worldOfCells[i][j].equals(Cell.DEAD)) {
+					if (countLivingSiblings(i, j) == 3)
+						worldOfCells[i][j] = Cell.REBORN;
+//				else	assert cell stays dead
+				}
 			}
 		}
 	}
 
-	/* private */int countLivingSiblings(int x, int y) {
+	/* private */ int countLivingSiblings(int x, int y) {
 		int c = 0;
-		if ((worldOfCells[(x + 1)][(y + 1)] != null)
-				&& (worldOfCells[(x + 1)][(y + 1)].equals(Cell.ALIVE)))
-			c++;
-		if (worldOfCells[x + 1][y].equals(Cell.ALIVE))
-			c++;
-		if (worldOfCells[x + 1][y - 1].equals(Cell.ALIVE))
-			c++;
-		if (worldOfCells[x][y - 1].equals(Cell.ALIVE))
-			c++;
-		if (worldOfCells[x][y + 1].equals(Cell.ALIVE))
-			c++;
-		if (worldOfCells[x - 1][y + 1].equals(Cell.ALIVE))
-			c++;
-		if (worldOfCells[x - 1][y].equals(Cell.ALIVE))
-			c++;
-		if (worldOfCells[x - 1][y - 1].equals(Cell.ALIVE))
-			c++;
+		try {
+			if (worldOfCells[(x + 1)][(y + 1)].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x + 1][y].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x + 1][y - 1].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x][y - 1].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x][y + 1].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x - 1][y + 1].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x - 1][y].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x - 1][y - 1].equals(Cell.ALIVE))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[(x + 1)][(y + 1)].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x + 1][y].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+
+		try {
+			if (worldOfCells[x + 1][y - 1].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x][y - 1].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x][y + 1].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x - 1][y + 1].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x - 1][y].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+		try {
+			if (worldOfCells[x - 1][y - 1].equals(Cell.DYING))
+				c++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
 
 		return c;
 
+	}
+
+	public void showBoard() {
+		for (int i = worldOfCells.length - 1; i >= 0; i--) {
+			System.out.print(" \n" + (i) + " ");
+			for (int j = 0; j < worldOfCells[i].length; j++) {
+				System.out.print(worldOfCells[i][j].sign);
+			}
+		}
 	}
 
 }
