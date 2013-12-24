@@ -57,6 +57,9 @@ public class Board {
 				}
 			}
 		}
+//		cleanup
+		
+		
 	}
 
 	/* private */ int countLivingSiblings(int x, int y) {
@@ -154,6 +157,16 @@ public class Board {
 				System.out.print(worldOfCells[i][j].sign);
 			}
 		}
+	}
+
+	 /* private */ void transform(Cell from, Cell to) {
+			for (int i = worldOfCells.length - 1; i >= 0; i--) {
+				System.out.print(" \n" + (i) + " ");
+				for (int j = 0; j < worldOfCells[i].length; j++) {
+					 if(worldOfCells[i][j].equals(from))
+						 worldOfCells[i][j] = to ;
+				}
+			}
 	}
 
 }

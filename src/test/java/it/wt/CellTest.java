@@ -60,17 +60,32 @@ public class CellTest {
 //		assertEquals(Cell.DEAD, board67.getCell(1,2));
 	}
 	
-//	@Test
+	@Test
 	public void testCount3LivingSiblings() {
 		Board board67 = new Board(6,7);
 		
 		board67.summonCell(1,2);
-		System.out.println(board67.getCell(1,2).toString());
+		board67.summonCell(1,1);
+		board67.summonCell(2,1);
+		board67.summonCell(2,2);
+		board67.showBoard();
 		assertEquals(Cell.ALIVE, board67.getCell(1,2));
-		assertEquals(0,board67.countLivingSiblings(1, 2));
+		assertEquals(3,board67.countLivingSiblings(1, 2));
 		
 	}
-	
+	@Test
+	public void testTransform() {
+		Board board67 = new Board(6,7);
+		
+		board67.summonCell(1,2);
+		 
+		assertEquals(Cell.ALIVE, board67.getCell(1,2));
+		board67.transform(Cell.ALIVE,Cell.DYING);
+		
+		assertEquals(Cell.DYING, board67.getCell(1,2));
+		
+		
+	}
 	
 
 }
