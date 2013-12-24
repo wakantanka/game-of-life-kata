@@ -34,9 +34,12 @@ public class CellTest {
 		Board board66 = new Board(6,6);
 		
 		board66.summonCell(1,1);
+		System.out.println(board66.getCell(1,1).toString());
 		assertEquals(Cell.ALIVE, board66.getCell(1,1));
 		board66.nextGenerationTurn();
+//		System.out.println(board66.getCell(1,1).name());
 //		assertEquals(Cell.DEAD, board66.getCell(1,1));
+		
 	}
 
 }
