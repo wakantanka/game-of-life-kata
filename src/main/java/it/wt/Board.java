@@ -12,23 +12,23 @@ import java.util.Arrays;
 public class Board {
 	private Cell[][] worldOfCells;
 
-	public Board(int i, int j) {
-		worldOfCells = new Cell[i][j];
-		for (int j2 = 0; j2 < worldOfCells.length; j2++) {
-			for (int k = 0; k < worldOfCells[j2].length; k++) {
-				worldOfCells[j2][k] = Cell.DEAD;
+	public Board(int x, int y) {
+		worldOfCells = new Cell[x][y];
+		for (int i = 0; i < worldOfCells.length; i++) {
+			for (int j = 0; j < worldOfCells[i].length; j++) {
+				worldOfCells[i][j] = Cell.DEAD;
 			}
 		}
 
 	}
 
-	public void summonCell(int i, int j) {
-		worldOfCells[i][j] = Cell.ALIVE;
+	public void summonCell(int x, int j) {
+		worldOfCells[x][j] = Cell.ALIVE;
 
 	}
 
-	public Cell getCell(int i, int j) {
-		return worldOfCells[i][j];
+	public Cell getCell(int x, int y) {
+		return worldOfCells[x][y];
 	}
 
 	@Override

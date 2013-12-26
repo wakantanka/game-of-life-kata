@@ -26,13 +26,14 @@ public class CellTest {
 	@Test
 	public void testStartCellIsAlive() {
 		Board board67 = new Board(6,7);
-		
-		board67.summonCell(1,2);
-//		System.out.println(board67.getCell(1,2).toString());
-		assertEquals(Cell.ALIVE, board67.getCell(1,2));
+		int x = 1;
+		int y =5;
+		board67.summonCell(x,y);
+//		System.out.println(board67.getCell(x,y).toString());
+		assertEquals(Cell.ALIVE, board67.getCell(x,y));
 		board67.showBoard();
-//		System.out.println(board66.getCell(1,1).name());
-//		assertEquals(Cell.DEAD, board66.getCell(1,1));
+//		System.out.println(board66.getCell(x,y).name());
+//		assertEquals(Cell.DEAD, board66.getCell(x,y));
 	}
  @Test
 	public void testStartCellIsAliveButDying() {
