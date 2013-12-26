@@ -17,7 +17,7 @@ public class CellTest {
 
 	@Before
 	public void setUp() throws Exception {
-	}
+	} 
 
 	@After
 	public void tearDown() throws Exception {
@@ -105,31 +105,26 @@ public class CellTest {
 	public void testGlider() {
 		Board board88 = new Board(9,9);
 		
-		board88.summonCell(0,0);
 		board88.summonCell(0,1);
-		board88.summonCell(0,2);
+		board88.summonCell(1,1);
 		board88.summonCell(2,1);
-		board88.summonCell(1,2);
+		board88.summonCell(2,2);
+		board88.summonCell(1,3);
 
+		assertEquals(Cell.ALIVE, board88.getCell(1,3));
 		board88.showBoard();
 		board88.nextGenerationTurn();
+		assertEquals(Cell.DEAD, board88.getCell(1,3));
+		assertEquals(Cell.ALIVE, board88.getCell(0,2));
+
+		for (int i = 0; i < 3; i++) {
+			board88.showBoard();
+			board88.nextGenerationTurn();
+		}
+			board88.showBoard();
+			assertEquals(Cell.ALIVE, board88.getCell(1,0));
 		
-		board88.showBoard();
-		board88.nextGenerationTurn();
 		
-		board88.showBoard();
-		board88.nextGenerationTurn();
-		
-		board88.showBoard();
-		board88.nextGenerationTurn();
-		
-		board88.showBoard();
-		board88.nextGenerationTurn();
-		
-		board88.showBoard();
-		board88.nextGenerationTurn();
-//		
-//		assertEquals(Cell.ALIVE, board67.getCell(1,2));
 		
 		
 	}

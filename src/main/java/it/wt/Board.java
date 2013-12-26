@@ -181,8 +181,9 @@ public class Board {
 				System.out.print(worldOfCells[i][j].sign );
 				
 			}
-			System.out.println();
+					System.out.println();
 		}
+				System.out.println("___________________");
 	}
 
 	 /* private */ void transform(Cell from, Cell to) {
