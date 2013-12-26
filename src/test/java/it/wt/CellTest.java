@@ -32,7 +32,7 @@ public class CellTest {
 		board67.summonCell(x,y);
 //		System.out.println(board67.getCell(x,y).toString());
 		assertEquals(Cell.ALIVE, board67.getCell(x,y));
-		board67.showBoard3();
+		board67.showBoard();
 //		System.out.println(board66.getCell(x,y).name());
 //		assertEquals(Cell.DEAD, board66.getCell(x,y));
 	}
@@ -49,22 +49,37 @@ public class CellTest {
 		board67.showBoard();
 	}
 	
+ @Test
+ public void testCountNoLivingSiblingsCellIsDying() {
+	 Board board67 = new Board(6,7);
+	 
+	 board67.summonCell(1,2);
+	 assertEquals(Cell.ALIVE, board67.getCell(1,2));
+	 assertEquals(0,board67.countLivingSiblings(1, 2));
+	 board67.nextGenerationTurn();
+	 assertEquals(Cell.DEAD, board67.getCell(1,2));
+ }
 	@Test
-	public void testCountNoLivingSiblings() {
+	public void testCount4LivingSiblingsCellIsDying() {
 		Board board67 = new Board(6,7);
 		
-		board67.summonCell(1,2);
-		assertEquals(Cell.ALIVE, board67.getCell(1,2));
-		assertEquals(0,board67.countLivingSiblings(1, 2));
-//		nextTurn
-//		assertEquals(Cell.DEAD, board67.getCell(1,2));
+		board67.summonCell(2,3); //cell
+		board67.summonCell(2,2);
+		board67.summonCell(3,2);
+		board67.summonCell(3,3);
+		board67.summonCell(1,3);
+		assertEquals(Cell.ALIVE, board67.getCell(2,3));
+		assertEquals(4,board67.countLivingSiblings(2, 3));
+		board67.nextGenerationTurn();
+		assertEquals(Cell.DEAD, board67.getCell(2,3));
+		board67.showBoard();
 	}
 	
 	@Test
 	public void testCount3LivingSiblings() {
 		Board board67 = new Board(6,7);
 		
-		board67.summonCell(2,3);
+		board67.summonCell(2,3); //cell
 		board67.summonCell(2,2);
 		board67.summonCell(3,2);
 		board67.summonCell(3,3);

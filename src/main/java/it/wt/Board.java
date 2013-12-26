@@ -154,7 +154,7 @@ public class Board {
 
 	}
 
-	public void showBoard() {
+	public void showBoard_bad() {
 		for (int i = worldOfCells.length - 1; i >= 0; i--) {
 //			System.out.print(" \n" + (i) + " ");
 			for (int j = (worldOfCells[i].length - 1); j >= 0 ; j--) {
@@ -173,7 +173,7 @@ public class Board {
 			System.out.println();
 		}
 	}
-	public void showBoard3() {
+	public void showBoard() {
 		 int j = worldOfCells[0].length - 1;
 				
 				for ( ; j >= 0 ; j--) {	
