@@ -26,12 +26,13 @@ public class CellTest {
 	@Test
 	public void testStartCellIsAlive() {
 		Board board67 = new Board(6,7);
-		int x = 1;
-		int y =5;
+		int x = 3;
+		int y = 4;
+		
 		board67.summonCell(x,y);
 //		System.out.println(board67.getCell(x,y).toString());
 		assertEquals(Cell.ALIVE, board67.getCell(x,y));
-		board67.showBoard();
+		board67.showBoard3();
 //		System.out.println(board66.getCell(x,y).name());
 //		assertEquals(Cell.DEAD, board66.getCell(x,y));
 	}
@@ -63,13 +64,13 @@ public class CellTest {
 	public void testCount3LivingSiblings() {
 		Board board67 = new Board(6,7);
 		
-		board67.summonCell(1,2);
-		board67.summonCell(1,1);
-		board67.summonCell(2,1);
+		board67.summonCell(2,3);
 		board67.summonCell(2,2);
+		board67.summonCell(3,2);
+		board67.summonCell(3,3);
 		board67.showBoard();
-		assertEquals(Cell.ALIVE, board67.getCell(1,2));
-		assertEquals(3,board67.countLivingSiblings(1, 2));
+		assertEquals(Cell.ALIVE, board67.getCell(2,3));
+		assertEquals(3,board67.countLivingSiblings(2, 3));
 		
 	}
 	@Test

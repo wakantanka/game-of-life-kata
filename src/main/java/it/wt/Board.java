@@ -22,12 +22,15 @@ public class Board {
 
 	}
 
-	public void summonCell(int x, int j) {
-		worldOfCells[x][j] = Cell.ALIVE;
+	public void summonCell(int x, int y) {
+		//check against borders
+//		worldOfCells[x-1][y-1] = Cell.ALIVE;
+		worldOfCells[x][y] = Cell.ALIVE;
 
 	}
 
 	public Cell getCell(int x, int y) {
+//		return worldOfCells[x-1][y-1];
 		return worldOfCells[x][y];
 	}
 
@@ -153,10 +156,32 @@ public class Board {
 
 	public void showBoard() {
 		for (int i = worldOfCells.length - 1; i >= 0; i--) {
-			System.out.print(" \n" + (i) + " ");
-			for (int j = 0; j < worldOfCells[i].length; j++) {
+//			System.out.print(" \n" + (i) + " ");
+			for (int j = (worldOfCells[i].length - 1); j >= 0 ; j--) {
 				System.out.print(worldOfCells[i][j].sign);
 			}
+			System.out.println();
+		}
+	}
+	
+	public void showBoard2() {
+		for (int i = 0; i < worldOfCells.length; i++) {
+			for (int j = (worldOfCells[i].length - 1); j >= 0 ; j--) {
+				
+				System.out.print(worldOfCells[i][j].sign );
+			}
+			System.out.println();
+		}
+	}
+	public void showBoard3() {
+		 int j = worldOfCells[0].length - 1;
+				
+				for ( ; j >= 0 ; j--) {	
+					for (int i = 0; i < worldOfCells.length; i++) {
+				System.out.print(worldOfCells[i][j].sign );
+				
+			}
+			System.out.println();
 		}
 	}
 
