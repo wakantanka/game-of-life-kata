@@ -13,9 +13,9 @@ public class Board {
 	private Cell[][] worldOfCells;
 
 	public Board(int x, int y) {
-		//@TODO unentdlich grosse welt
-		//@TODO kugeloberfläche (geht auf der anderen Seite weiter)
-		//@TODO 3d welt
+		// @TODO unentdlich grosse welt
+		// @TODO kugeloberfläche (geht auf der anderen Seite weiter)
+		// @TODO 3d welt
 		worldOfCells = new Cell[x][y];
 		for (int i = 0; i < worldOfCells.length; i++) {
 			for (int j = 0; j < worldOfCells[i].length; j++) {
@@ -26,14 +26,15 @@ public class Board {
 	}
 
 	public void summonCell(int x, int y) {
-		//@TODO check against borders
-//		worldOfCells[x-1][y-1] = Cell.ALIVE;
+		// @TODO check against borders
+		// worldOfCells[x-1][y-1] = Cell.ALIVE;
 		worldOfCells[x][y] = Cell.ALIVE;
 
 	}
-	//@TODO check against borders
+
+	// @TODO check against borders
 	public Cell getCell(int x, int y) {
-//		return worldOfCells[x-1][y-1];
+		// return worldOfCells[x-1][y-1];
 		return worldOfCells[x][y];
 	}
 
@@ -53,23 +54,23 @@ public class Board {
 						worldOfCells[i][j] = Cell.DYING;
 						continue;
 					}
-				} 
-				
+				}
+
 				if (worldOfCells[i][j].equals(Cell.DEAD)) {
 					if (countLivingSiblings(i, j) == 3)
 						worldOfCells[i][j] = Cell.REBORN;
-//				else	assert cell stays dead
+					// else assert cell stays dead
 				}
 			}
 		}
-//		cleanup-transform
+		// cleanup-transform
 		transform(Cell.REBORN, Cell.ALIVE);
 		transform(Cell.DYING, Cell.DEAD);
-		
-		
+
 	}
-//@TODO refactor
-	/* private */ int countLivingSiblings(int x, int y) {
+
+	// @TODO refactor
+	/* private */int countLivingSiblings(int x, int y) {
 		int c = 0;
 		try {
 			if (worldOfCells[(x + 1)][(y + 1)].equals(Cell.ALIVE))
@@ -157,45 +158,26 @@ public class Board {
 
 	}
 
-	public void showBoard_bad() {
-		for (int i = worldOfCells.length - 1; i >= 0; i--) {
-//			System.out.print(" \n" + (i) + " ");
-			for (int j = (worldOfCells[i].length - 1); j >= 0 ; j--) {
-				System.out.print(worldOfCells[i][j].sign);
-			}
-			System.out.println();
-		}
-	}
-	
-	public void showBoard2() {
-		for (int i = 0; i < worldOfCells.length; i++) {
-			for (int j = (worldOfCells[i].length - 1); j >= 0 ; j--) {
-				
-				System.out.print(worldOfCells[i][j].sign );
-			}
-			System.out.println();
-		}
-	}
 	public void showBoard() {
-		 int j = worldOfCells[0].length - 1;
-				
-				for ( ; j >= 0 ; j--) {	
-					for (int i = 0; i < worldOfCells.length; i++) {
-				System.out.print(worldOfCells[i][j].sign );
-				
+		int j = worldOfCells[0].length - 1;
+
+		for (; j >= 0; j--) {
+			for (int i = 0; i < worldOfCells.length; i++) {
+				System.out.print(worldOfCells[i][j].sign);
+
 			}
-					System.out.println();
+			System.out.println();
 		}
-				System.out.println("___________________");
+		System.out.println("___________________");
 	}
 
-	 /* private */ void transform(Cell from, Cell to) {
-			for (int i = worldOfCells.length - 1; i >= 0; i--) {
-				for (int j = 0; j < worldOfCells[i].length; j++) {
-					 if(worldOfCells[i][j].equals(from))
-						 worldOfCells[i][j] = to ;
-				}
+	/* private */void transform(Cell from, Cell to) {
+		for (int i = worldOfCells.length - 1; i >= 0; i--) {
+			for (int j = 0; j < worldOfCells[i].length; j++) {
+				if (worldOfCells[i][j].equals(from))
+					worldOfCells[i][j] = to;
 			}
+		}
 	}
 
 }
