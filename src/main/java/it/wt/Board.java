@@ -13,6 +13,9 @@ public class Board {
 	private Cell[][] worldOfCells;
 
 	public Board(int x, int y) {
+		//@TODO unentdlich grosse welt
+		//@TODO kugeloberfläche (geht auf der anderen Seite weiter)
+		//@TODO 3d welt
 		worldOfCells = new Cell[x][y];
 		for (int i = 0; i < worldOfCells.length; i++) {
 			for (int j = 0; j < worldOfCells[i].length; j++) {
@@ -23,12 +26,12 @@ public class Board {
 	}
 
 	public void summonCell(int x, int y) {
-		//check against borders
+		//@TODO check against borders
 //		worldOfCells[x-1][y-1] = Cell.ALIVE;
 		worldOfCells[x][y] = Cell.ALIVE;
 
 	}
-
+	//@TODO check against borders
 	public Cell getCell(int x, int y) {
 //		return worldOfCells[x-1][y-1];
 		return worldOfCells[x][y];
@@ -65,7 +68,7 @@ public class Board {
 		
 		
 	}
-
+//@TODO refactor
 	/* private */ int countLivingSiblings(int x, int y) {
 		int c = 0;
 		try {
